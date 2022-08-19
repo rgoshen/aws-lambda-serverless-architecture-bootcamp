@@ -1,5 +1,7 @@
 # AWS Lambda & Serverless Architecture Bootcamp
 
+[Udemy Course](https://www.udemy.com/course/aws-lambda-serverless-architecture/learn/lecture/12903128#overview)
+
 ## Table of Contents
 
 - [AWS Lambda & Serverless Architecture Bootcamp](#aws-lambda--serverless-architecture-bootcamp)
@@ -52,5 +54,7 @@ Serverless means “Event-driven Computing” using “Small independent statele
 So, you have your code running on the cloud platform, AWS in our case.
 
 Whenever the triggering event occurs, the cloud platform spins up a container or initializes a container, loads the function in it and executes the function. And this happens almost instantaneously, thereby allowing us to build applications that respond quickly to new information and thus enhance user experience. Once the function completes execution, it optionally returns a response back to the caller, and then finally exits or shuts down.
+
+AWS Lambda and API Gateway are the two of the core services of the AWS serverless platform
 
 [back](#table-of-contents)
