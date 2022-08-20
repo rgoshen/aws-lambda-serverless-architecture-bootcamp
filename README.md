@@ -77,6 +77,8 @@ AWS Lambda and API Gateway are the two of the core services of the AWS serverles
 
 Once completed, this will redirect you to Resources screen
 
+![resources screen](assets/images/resources_screen.png)
+
 - here we can create Resources and methods for the API
 
 **Create an End Point/Resource manually**
@@ -86,6 +88,8 @@ Once completed, this will redirect you to Resources screen
 3. Name the resource
 4. Click on **Create Resource** button
 
+![messsage resource](assets/images/message_resource.png)
+
 **Add a method to a resource**
 
 1. Click on **Actions** drop down
@@ -94,6 +98,8 @@ Once completed, this will redirect you to Resources screen
 4. Click on the :heavy_check_mark: button
 5. Select your Integration Type
 6. Click on **Save** button
+
+![method_setup](assets/images/method_setup.png)
 
 This will take you to the **Method Execution** screen
 
@@ -105,6 +111,17 @@ In our case there is no backend since we are simply mocking a response using the
 
 The response received from the backend is then mapped or transformed in the Integration Response block to match the format that the calling application expects and then the Method response relays the response back to the client.
 
+**Create a Response**
+
+1. Click on **Integration Response** link
+2. Click on drop down arrow next to 200 Method response status
+3. Click on drop down arrow next to Mapping Templates
+4. Click **Add mapping template**
+5. Add `application/json` then click on the :heavy_check_mark: button
+6. Add your json on the right
+
+![get integration response](assets/images/get_integration_response.png)
+
 **Deployment**
 
 1. Once all is configured, click on the **Actions** drop down
@@ -112,5 +129,34 @@ The response received from the backend is then mapped or transformed in the Inte
 3. Choose **New Stage** from the **Deployment stage** drop down
 4. Give your stage a name (ex. Test)
 5. Click **Deploy** button
+
+![test stage editor](assets/images/test_stage_editor.png)
+
+There are two ways to test your API at this point
+
+**Option 1:**
+
+1. Make sure you are on the `Stages` tab
+2. Click on `GET` method under `message`
+3. Click on **Invoke URL:**
+
+![test get message](assets/images/test_get_message_1.png)
+
+![test output](assets/images/test_get_message_output.png)
+
+>:warning: WARNING:
+>
+> Make sure you click on the link for your method and not under test stage itself.
+> You will get a `message: "Missing Authentication Token"` because test is the root
+> and it does not have a `GET` method.
+
+**Option 2:**
+
+1. Navigate to `GET - Method Execution` screen under Resources tab
+2. Click on **TEST** on Client
+3. Click on **Test** button at the bottom
+
+![get method execution test](assets/images/get_message_execution_test.png)
+![get method execution test screen](assets/images/get_method_execution_test_screen.png)
 
 [back](#table-of-contents)
