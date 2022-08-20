@@ -10,6 +10,7 @@
     - [What is Serverless? (A 30,000 ft. View)](#what-is-serverless-a-30000-ft-view)
     - [How Serverless Works?](#how-serverless-works)
     - [How to Create 'Hello World' API with Serverless](#how-to-create-hello-world-api-with-serverless)
+    - [How to Create Your First Lambda Function](#how-to-create-your-first-lambda-function)
 
 ## Section 1: Getting Started With Serverless Computing on AWS
 
@@ -158,5 +159,50 @@ There are two ways to test your API at this point
 
 ![get method execution test](assets/images/get_message_execution_test.png)
 ![get method execution test screen](assets/images/get_method_execution_test_screen.png)
+
+[back](#table-of-contents)
+
+### How to Create Your First Lambda Function
+
+1. AWS Management Console click on **Services** upper left corner
+2. Click on **Compute**
+3. Under **Compute** click on **Lambda**
+4. Click on **Create function** button
+5. Select **Author from scratch**
+6. Name your function
+7. Either select your runtime or leave it at the default
+8. Click on drop down arrow next to **Change default execution role** and select your option
+9. Click on **Create function** button
+10. Change index.js code what you need
+11. Save your function
+12. Configure your test event
+13. Click **Save** button
+
+14.
+
+_index.js_
+
+```javascript
+var messages = [
+    "Hello World!",
+    "Hello Serverless!",
+    "It's a great day today!",
+    "Yay, I'm learning something new today!",
+    "On cloud nine!",
+    "Over the moon!",
+    "Shooting for the stars!",
+    "On top of the World!",
+    "World at my feet!",
+    "Doing everything I love!"
+];
+
+exports.handler = (event, context, callback) => {
+    let message = messages[Math.floor(Math.random()*10)];
+    callback(null, message);
+};
+```
+
+![aws lambda screen](assets/images/lambda_screen.png)
+![create function screen](assets/images/create_function_screen.png)
 
 [back](#table-of-contents)
