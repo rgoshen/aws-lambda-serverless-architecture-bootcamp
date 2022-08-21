@@ -12,6 +12,9 @@
     - [How to Create 'Hello World' API with Serverless](#how-to-create-hello-world-api-with-serverless)
     - [How to Create Your First Lambda Function](#how-to-create-your-first-lambda-function)
     - [How to integrate AWS Lambda function with API Gateway](#how-to-integrate-aws-lambda-function-with-api-gateway)
+    - [Serverless Architecture - Key Features, Benefits and Challenges](#serverless-architecture---key-features-benefits-and-challenges)
+      - [Pros](#pros)
+      - [Challenge](#challenge)
 
 ## Section 1: Getting Started With Serverless Computing on AWS
 
@@ -34,7 +37,7 @@ Serverless architecture:
 
 - Serverless Architecture, all these mundane tasks of managing the underlying infrastructure are abstracted away from us.
 
- Serverless Computing still uses servers, but you no longer have to worry about managing them or worry about the uptime or availability or anything that has to do with the infrastructure part.
+Serverless Computing still uses servers, but you no longer have to worry about managing them or worry about the uptime or availability or anything that has to do with the infrastructure part.
 
 Advantages of Serverless vs. Traditional
 
@@ -146,7 +149,7 @@ There are two ways to test your API at this point
 
 ![test output](assets/images/test_get_message_output.png)
 
->:warning: WARNING:
+> :warning: WARNING:
 >
 > Make sure you click on the link for your method and not under test stage itself.
 > You will get a `message: "Missing Authentication Token"` because test is the root
@@ -184,21 +187,21 @@ _index.js_
 
 ```javascript
 var messages = [
-    "Hello World!",
-    "Hello Serverless!",
-    "It's a great day today!",
-    "Yay, I'm learning something new today!",
-    "On cloud nine!",
-    "Over the moon!",
-    "Shooting for the stars!",
-    "On top of the World!",
-    "World at my feet!",
-    "Doing everything I love!"
+  'Hello World!',
+  'Hello Serverless!',
+  "It's a great day today!",
+  "Yay, I'm learning something new today!",
+  'On cloud nine!',
+  'Over the moon!',
+  'Shooting for the stars!',
+  'On top of the World!',
+  'World at my feet!',
+  'Doing everything I love!',
 ];
 
 exports.handler = (event, context, callback) => {
-    let message = messages[Math.floor(Math.random()*10)];
-    callback(null, message);
+  let message = messages[Math.floor(Math.random() * 10)];
+  callback(null, message);
 };
 ```
 
@@ -232,9 +235,53 @@ exports.handler = (event, context, callback) => {
 ```
 
 > :paperclip: NOTE:
-> >
-> To see which region you created your Lambda in,
-> click on your Lambda and look in the URL.
-> It will tell you the region.
+>
+> > To see which region you created your Lambda in,
+> > click on your Lambda and look in the URL.
+> > It will tell you the region.
+
+[back](#table-of-contents)
+
+### Serverless Architecture - Key Features, Benefits and Challenges
+
+#### Pros
+
+- no server management
+  - no servers, operating systems, hardware or software to maintain
+  - faster innovation, high productivity and faster time to market
+  - in most cases serverless applications require little to no administration
+- easy and efficient scaling
+  - can be scaled automatically or at the most with a few clicks to choose desired capacity
+  - no need to create any specialized scalable architecture or designs
+  - get a large number of serverless functions running within seconds
+  - each functino runs for a few hundred milliseconds to a few minutes
+  - allocate resources for each if these functions individually
+- built-in high availability and fault tolerance
+  - no specialized infrastructure
+- service integration
+  - AWS provides a host of services that readily integrate with each other
+  - allow you to perform a lot of stuff very, very easily
+    - sending text notifications
+    - emails
+    - running analytics
+    - hosting APIs
+    - storing files
+    - running automated workflows
+    - deploying machine learning models
+- no idle capacity
+  - pay for only what you use and no more
+  - only pay for the time your code runs
+
+#### Challenge
+
+- vendor lock-ins
+  - only a handful of cloud providers like Amazon AWS, Microsoft Azure, Google Cloud Platform, IBM Cloud
+  - one way to alleviate this challenge is use multi-provider serverless
+- public cloud
+  - some use cases or industry-specific regulatory requirements may be a deterrent to using public cloud
+  - serverless can be run on private clouds
+- level of control
+  - giving up some degree of control by letting someone else manage the infrastructure for you
+  - some situations, you may need more control of hardware resources or OS level resources
 
 [back](#table-of-contents)
