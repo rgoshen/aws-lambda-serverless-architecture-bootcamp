@@ -17,6 +17,7 @@
       - [Challenge](#challenge)
     - [Major Players in Serverless Space and Why AWS](#major-players-in-serverless-space-and-why-aws)
       - [Why AWS?](#why-aws)
+    - [Overview of Core Serverless Services in AWS](#overview-of-core-serverless-services-in-aws)
 
 ## Section 1: Getting Started With Serverless Computing on AWS
 
@@ -298,5 +299,42 @@ exports.handler = (event, context, callback) => {
 #### Why AWS?
 
 - Besides being the first to enter the serverless space, AWS Lambda has its strength being apart of the huge AWS ecosystem, thereby allowing seamless integration with host of other AWS services
+
+[back](#table-of-contents)
+
+### Overview of Core Serverless Services in AWS
+
+- There are three core services that you can find in almost every serverless application
+
+![aws core services](assets/images/aws_core_services.png)
+
+- These services are the foundation or the backbone of the AWS Serverless platform
+- additional web services that you can use in serverless applications depending on your use case
+
+  - S3
+  - SNS
+  - SQS
+  - AWS Step Functions
+  - Kinesis
+  - Athena
+
+- AWS Lambda
+  - lets you run your code without having to create or manage any servers
+  - upload code to Lambda and Lambda does the rest for you and ensures that your code runs on highly scalable and highly available infrastructure
+  - each piece of codes that you upload to Lambda is called as a Lambda Function and it runs in an independent isolated environment also called as a container
+  - only pay for the time your code runs
+  - provides fine grained access control letting you decide who can invoke Lambda Functions and which services can be executed by the Lambda Function
+  - comes with version management capabilities allowing you to manage your deployments efficiently
+- Amazon API Gateway
+  - helps you create and publish APIs
+  - integrates with AWS Lambda to let you create completely serverless APIs
+  - can handle thousands fo concurrent API calls
+  - gives you fill control to create your APIs with fine-grained access control and version management capabilities
+- DynamoDB
+  - hihgly-scalable high-performance NoSQL serverless database
+  - can scale on demand to support virtually unlimited concurrent read/write operations with repsonse times in single-digit milliseconds
+  - DynamoDB DAX or DynamoDB Accelerator
+    - can further bring down the response times from milliseconds to microseconds
+    - DAX is a caching service
 
 [back](#table-of-contents)
