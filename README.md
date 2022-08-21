@@ -11,6 +11,7 @@
     - [How Serverless Works?](#how-serverless-works)
     - [How to Create 'Hello World' API with Serverless](#how-to-create-hello-world-api-with-serverless)
     - [How to Create Your First Lambda Function](#how-to-create-your-first-lambda-function)
+    - [How to integrate AWS Lambda function with API Gateway](#how-to-integrate-aws-lambda-function-with-api-gateway)
 
 ## Section 1: Getting Started With Serverless Computing on AWS
 
@@ -177,8 +178,7 @@ There are two ways to test your API at this point
 11. Save your function
 12. Configure your test event
 13. Click **Save** button
-
-14.
+14. In order to test it, make to deploy the function
 
 _index.js_
 
@@ -204,5 +204,37 @@ exports.handler = (event, context, callback) => {
 
 ![aws lambda screen](assets/images/lambda_screen.png)
 ![create function screen](assets/images/create_function_screen.png)
+
+[back](#table-of-contents)
+
+### How to integrate AWS Lambda function with API Gateway
+
+1. Go back to the API Gateway
+2. Click on your method
+3. Click on **Method Execution**
+4. Click on **Integration Request**
+5. Select **Lambda Function** from **Integration Type**
+6. Select the same region you created your Lambda in
+7. Type in the name of your function in Lambda Function text box
+8. Click on **Save** button
+9. Go back to **Method Execution**
+10. Click on **Integration Request**
+11. Click on down arrow next to **Mapping Templates**
+12. Under **Content-Type** type in `application/json` and then click on :heavy_check_mark: button
+13. Click on `application/json` and enter in the below json
+14. Click on **Save** button
+15. Redeploy the API
+
+```json
+{
+    "message": $input.body
+}
+```
+
+> :paperclip: NOTE:
+> >
+> To see which region you created your Lambda in,
+> click on your Lambda and look in the URL.
+> It will tell you the region.
 
 [back](#table-of-contents)
