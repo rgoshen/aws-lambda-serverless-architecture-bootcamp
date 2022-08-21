@@ -15,6 +15,8 @@
     - [Serverless Architecture - Key Features, Benefits and Challenges](#serverless-architecture---key-features-benefits-and-challenges)
       - [Pros](#pros)
       - [Challenge](#challenge)
+    - [Major Players in Serverless Space and Why AWS](#major-players-in-serverless-space-and-why-aws)
+      - [Why AWS?](#why-aws)
 
 ## Section 1: Getting Started With Serverless Computing on AWS
 
@@ -283,5 +285,18 @@ exports.handler = (event, context, callback) => {
 - level of control
   - giving up some degree of control by letting someone else manage the infrastructure for you
   - some situations, you may need more control of hardware resources or OS level resources
+
+[back](#table-of-contents)
+
+### Major Players in Serverless Space and Why AWS
+
+- core component of the AWS Serverless Architecture is the compute service called AWS Lambda
+
+![major cloud space comparison](assets/images/major_cloud_space_comparison.png)
+![cloud space popularity](assets/images/cloud_space_popularity.png)
+
+#### Why AWS?
+
+- Besides being the first to enter the serverless space, AWS Lambda has its strength being apart of the huge AWS ecosystem, thereby allowing seamless integration with host of other AWS services
 
 [back](#table-of-contents)
