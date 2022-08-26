@@ -18,6 +18,7 @@
     - [Major Players in Serverless Space and Why AWS](#major-players-in-serverless-space-and-why-aws)
       - [Why AWS?](#why-aws)
     - [Overview of Core Serverless Services in AWS](#overview-of-core-serverless-services-in-aws)
+    - [Overview of Additional Serverless Services in AWS](#overview-of-additional-serverless-services-in-aws)
 
 ## Section 1: Getting Started With Serverless Computing on AWS
 
@@ -336,5 +337,50 @@ exports.handler = (event, context, callback) => {
   - DynamoDB DAX or DynamoDB Accelerator
     - can further bring down the response times from milliseconds to microseconds
     - DAX is a caching service
+
+[back](#table-of-contents)
+
+### Overview of Additional Serverless Services in AWS
+
+1. Amazon Simple Storage Service or S3
+
+- very simple and intuitive web service
+- can store and access your data from anywhere in the web with fine-grained access control
+- lets you build static sebsites that can interact with your Lambda code (basically use S3 as a front end of your serverless application)
+
+2. AWS provides two services that you can use here for inter-process messaging
+
+   1. SNS or Simple Notification Service
+      - a fully -managed notification service that allows you to publish notifications and any services or software components that subscribe to these notifications will receive messages
+   2. SQS or Simple Queue Service
+      - very simple and intuitive messaging service that you can send and receive message at virtually any volume
+      - allows multiple publishers and consumers to read and write messages from the same queue
+      - can retain this message up to a certain pre-defined time period or until you explicitly delete the message
+3. AWS Step Functions
+
+- there could be serveral Lambda functions working together and your application might need a way to orchestrate these functions
+- i.e. execute them in a certain order that might be known at runtime
+- lets you build visual workflows to coordinate different Lambda functions to work together and form a larger serverless application
+
+4. Analystics
+   1. Amazon Kinesis
+   - a platform for streaming data applications
+   - work with or analyze streaming data in real time
+   2. Amazon Athena
+   - interactive query service that you can use to query your data stored in Amazon S3 using standard SQL syntax
+
+5. Debugging Tools
+   1. AWS X-Ray
+   2. AWS CloudWatch
+
+6. AWS Cognito
+
+- serverless user authentication and management service
+- supports authentication of users for your application via username/passwords and also via Federated Identity or Open ID providers like Facebook, Google, Twitter, Amazon and so on
+  - also you can have your own custom Oper ID provder
+
+7. AWS SDKs
+
+AWS Lambda supports several programming languages like Node.js or JavaScript, Python, Java, C#, .NET Code and Google Go
 
 [back](#table-of-contents)
