@@ -20,6 +20,7 @@
     - [Overview of Core Serverless Services in AWS](#overview-of-core-serverless-services-in-aws)
     - [Overview of Additional Serverless Services in AWS](#overview-of-additional-serverless-services-in-aws)
     - [Use Cases of Serverless Architecture](#use-cases-of-serverless-architecture)
+  - [Overview of Frameworks and CI/CD Tools for Serverless](#overview-of-frameworks-and-cicd-tools-for-serverless)
 
 ## Section 1: Getting Started With Serverless Computing on AWS
 
@@ -408,5 +409,40 @@ Serverless architecture allows us to build just about any type of application or
 - Amazon Kinesis is a service that lets you collect, process and analyze real-time streaming data from multiple sources, at absolutely any scale
   - you can literally process terabytes of data every hour, coming in from thousands and thousands of sources simultaneously
   - Kinesis also provides Data Analytics services that can be used to build Real-time Analytics applications
+
+[back](#table-of-contents)
+
+## Overview of Frameworks and CI/CD Tools for Serverless
+
+There are two frameworks that help you work with your serverless applications efficiently
+
+1. AWS SAM or Serverless Application Model
+
+- a tool provided by Amazon
+- lightweight version of AWS CloudFormation
+  - CloudFormation is a service that allows you to automate creating and deploying various AWS services quickly using a text-based template file
+- AWS SAM uses similar template file but with a simplified syntax
+- CloudFormation internally converts this SAM template into the standard CloudFormation syntax to create and deploy our serverless resources
+
+2. Serverless Framework
+
+- a popular third party tool provided by Serverless Inc.
+- open source tool and works on similar lines as the AWS SAM
+- template syntax is slightly different but equally easy
+- also has an open source plug-in system which allows any one to extend its functionality
+
+3. AWS CodeCommit
+
+- version control or source control system that provides a GIT based repository and you can use it as your codebase
+- allows you to maintain private repositories of your application code
+
+4. AWS CodeBuild
+
+- allows you to build serverless code and create or update AWS resources automatically via CloudFormation
+- allows you to deploy your serverless application as well
+
+5. AWS CodePipeline
+
+- is a service that allows you to define the delivery or deployment process for our serverless applications
 
 [back](#table-of-contents)
