@@ -19,19 +19,20 @@
       - [Why AWS?](#why-aws)
     - [Overview of Core Serverless Services in AWS](#overview-of-core-serverless-services-in-aws)
     - [Overview of Additional Serverless Services in AWS](#overview-of-additional-serverless-services-in-aws)
+    - [Use Cases of Serverless Architecture](#use-cases-of-serverless-architecture)
 
 ## Section 1: Getting Started With Serverless Computing on AWS
 
 ### What is Serverless? (A 30,000 ft. View)
 
-- Serverless computing is the new trend in cloud computing that attempts to solve the challengs of applications that need to be fast, responsive, and scalable with almost no downtime.
+- Serverless computing is the new trend in cloud computing that attempts to solve the challenges of applications that need to be fast, responsive, and scalable with almost no downtime.
 - Serverless computing will help you build the next generation of systems that can handle demanding workloads and scale indefinitely without having to provision or manage any servers.
 
 Traditional architecture:
 
 - you got to create and setup servers,
 - install operating systems,
-- install and setupdatabases,
+- install and setup databases,
 - manage software patches and hardware updates,
 - manage capacity and scaling, ManageHigh-availability through load-balancing and so on
 
@@ -55,7 +56,7 @@ Advantages of Serverless vs. Traditional
 
 With Serverless, you write your code in the form of functions, just like you’d write a function in any programming language. And these functions then run in the cloud. So, you segregate your application logic in to small independent functions or microservices and upload them to the cloud provider.
 
-These functions are stateless and can be invoked in repsonse to different events. These events could be file uploads, database updates, in-app activity, API calls, website clicks, or sensor outputs just like those from IoT devices and so on.
+These functions are stateless and can be invoked in response to different events. These events could be file uploads, database updates, in-app activity, API calls, website clicks, or sensor outputs just like those from IoT devices and so on.
 
 These serverless functions often run in Docker-like containers and hence several instances of these functions can be run concurrently, like in a Docker swarm for example, thus making them highly highly scalable.
 
@@ -258,7 +259,7 @@ exports.handler = (event, context, callback) => {
   - can be scaled automatically or at the most with a few clicks to choose desired capacity
   - no need to create any specialized scalable architecture or designs
   - get a large number of serverless functions running within seconds
-  - each functino runs for a few hundred milliseconds to a few minutes
+  - each function runs for a few hundred milliseconds to a few minutes
   - allocate resources for each if these functions individually
 - built-in high availability and fault tolerance
   - no specialized infrastructure
@@ -332,8 +333,8 @@ exports.handler = (event, context, callback) => {
   - can handle thousands fo concurrent API calls
   - gives you fill control to create your APIs with fine-grained access control and version management capabilities
 - DynamoDB
-  - hihgly-scalable high-performance NoSQL serverless database
-  - can scale on demand to support virtually unlimited concurrent read/write operations with repsonse times in single-digit milliseconds
+  - highly-scalable high-performance NoSQL serverless database
+  - can scale on demand to support virtually unlimited concurrent read/write operations with response times in single-digit milliseconds
   - DynamoDB DAX or DynamoDB Accelerator
     - can further bring down the response times from milliseconds to microseconds
     - DAX is a caching service
@@ -346,7 +347,7 @@ exports.handler = (event, context, callback) => {
 
 - very simple and intuitive web service
 - can store and access your data from anywhere in the web with fine-grained access control
-- lets you build static sebsites that can interact with your Lambda code (basically use S3 as a front end of your serverless application)
+- lets you build static websites that can interact with your Lambda code (basically use S3 as a front end of your serverless application)
 
 2. AWS provides two services that you can use here for inter-process messaging
 
@@ -358,11 +359,11 @@ exports.handler = (event, context, callback) => {
       - can retain this message up to a certain pre-defined time period or until you explicitly delete the message
 3. AWS Step Functions
 
-- there could be serveral Lambda functions working together and your application might need a way to orchestrate these functions
+- there could be several Lambda functions working together and your application might need a way to orchestrate these functions
 - i.e. execute them in a certain order that might be known at runtime
 - lets you build visual workflows to coordinate different Lambda functions to work together and form a larger serverless application
 
-4. Analystics
+4. Analytics
    1. Amazon Kinesis
    - a platform for streaming data applications
    - work with or analyze streaming data in real time
@@ -377,10 +378,35 @@ exports.handler = (event, context, callback) => {
 
 - serverless user authentication and management service
 - supports authentication of users for your application via username/passwords and also via Federated Identity or Open ID providers like Facebook, Google, Twitter, Amazon and so on
-  - also you can have your own custom Oper ID provder
+  - also you can have your own custom Open ID provider
 
 7. AWS SDKs
 
 AWS Lambda supports several programming languages like Node.js or JavaScript, Python, Java, C#, .NET Code and Google Go
+
+[back](#table-of-contents)
+
+### Use Cases of Serverless Architecture
+
+Serverless architecture allows us to build just about any type of application or back-end service that you can think of
+
+:computer: :iphone: :earth_americas:
+
+1. Application backends
+
+- build backends for Web, Mobile or IoT applications
+- typically make use of AWS Lambda, API Gateway, DynamoDB, S3 or even Step Functions as needed
+- frontends act as event sources to trigger our lambda code
+- each incoming request from the end user is typically received by one of the endpoints exposed by teh API Gateway
+- API Gateway then triggers a call to Lambda function and Lambda function then coordinates with different web services like S3 or DynamoDB to generate a response and then return that response back to the end user
+- Amazon S3 can also be used to create the app front-end in this case
+- these frontends are wired to the serverless backends by means of APIs that we create using the API Gateway
+
+2. Real-time or Streaming Data Processing
+
+- Amazon Kinesis ro Kinesis Firehose with Lambda, DynamoDB and S3 to create your real-time data processing systems
+- Amazon Kinesis is a service that lets you collect, process and analyze real-time streaming data from multiple sources, at absolutely any scale
+  - you can literally process terabytes of data every hour, coming in from thousands and thousands of sources simultaneously
+  - Kinesis also provides Data Analytics services that can be used to build Real-time Analytics applications
 
 [back](#table-of-contents)
