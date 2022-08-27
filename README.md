@@ -23,6 +23,7 @@
   - [Overview of Frameworks and CI/CD Tools for Serverless](#overview-of-frameworks-and-cicd-tools-for-serverless)
   - [Section 2: Serverless Foundation - AWS Lambda](#section-2-serverless-foundation---aws-lambda)
     - [Quick Overview of AWS Lambda](#quick-overview-of-aws-lambda)
+    - [Lambda Permissions Model](#lambda-permissions-model)
 
 ## Section 1: Getting Started With Serverless Computing on AWS
 
@@ -466,5 +467,16 @@ AWS Lambda is an event-driven serverless computing platform or a compute service
 You can write the Lambda functions right inside the Lambda console or write them locally on our computer and upload them to Lambda.
 
 Once the code is deployed to Lambda, it is ready to run. It runs whenever it is triggered by a preconfigured event source. They can be triggered by numerous event sources like API Gateway calls, S3 file uploads, changes to DynamoDB table data, CloudWatch events, SNS Notifications, third party APIs, IoT devices and so on. The Lambda functions run in containerized environments which spring into action only when triggered by an event-source.
+
+[back](#table-of-contents)
+
+### Lambda Permissions Model
+
+- AWS uses a decoupled permissions model
+- the service or event that triggers the Lambda function only requires the necessary permissions to invoke the Lambda function
+- when you add an event trigger to your Lambda function, it is automatically assigned an appropriate IAM policy to invoke this Lambda function
+  - this role is called a Lambda invocation policy or Function policy
+- for Lambda functions, you also have access to a list of services
+  - these permissions are called a Lambda execution role
 
 [back](#table-of-contents)
