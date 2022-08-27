@@ -24,6 +24,7 @@
   - [Section 2: Serverless Foundation - AWS Lambda](#section-2-serverless-foundation---aws-lambda)
     - [Quick Overview of AWS Lambda](#quick-overview-of-aws-lambda)
     - [Lambda Permissions Model](#lambda-permissions-model)
+    - [Lambda Handler Syntax](#lambda-handler-syntax)
 
 ## Section 1: Getting Started With Serverless Computing on AWS
 
@@ -478,5 +479,44 @@ Once the code is deployed to Lambda, it is ready to run. It runs whenever it is 
   - this role is called a Lambda invocation policy or Function policy
 - for Lambda functions, you also have access to a list of services
   - these permissions are called a Lambda execution role
+
+[back](#table-of-contents)
+
+### Lambda Handler Syntax
+
+_nodejs 6.10_
+
+```node
+exports.handler = (event, context, callback) => {
+  /// code to execute goes here
+
+  callback(null, result);
+};
+```
+
+_nodejs 8.10_
+
+```node
+exports.handler = async (event, context) => {
+  const data = event.data;
+
+  let newImage = await resizeImage();
+
+  return newImage;
+};
+
+const resizeImage = (data) =>
+  new Promise((resolve, reject) => {
+    // code goes here
+
+    if (error) {
+      reject(error);
+    } else {
+      resolve(result);
+    }
+  });
+```
+
+Regardless of which version you use, there are two important arguments into the event handler: event & context
 
 [back](#table-of-contents)
