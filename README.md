@@ -26,6 +26,7 @@
     - [Lambda Permissions Model](#lambda-permissions-model)
     - [Lambda Handler Syntax in Node.js 6.10 and Node.js 8.10](#lambda-handler-syntax-in-nodejs-610-and-nodejs-810)
     - [Event Object, Invocation Types, Event Sources](#event-object-invocation-types-event-sources)
+    - [Context Object, its Methods and Properties](#context-object-its-methods-and-properties)
 
 ## Section 1: Getting Started With Serverless Computing on AWS
 
@@ -542,5 +543,33 @@ Regardless of which version you use, there are two important arguments into the 
     - DynamoDB stream event, a Kinesis stream event or an Amazon SQS queue event
 
 If we invoke the Lambda function from our code using Amazon SDK, we can have our own custom event structure
+
+[back](#table-of-contents)
+
+### Context Object, its Methods and Properties
+
+- Context object is the optional second argument passed into the Lambda handler
+- provides useful runtime information while the Lambda function is executing
+  - find out How much time is remaining before the Lambda function times out, what CloudWatch log group and log stream associated with the Lambda function, what is the AWS request ID of the current invocation of this Lambda function, and so on
+- provides different methods and properties which we can use to get this runtime information
+
+```node
+exports.handler = async (event, context) => {
+  context.getRemainingTimeInMillis();
+
+  context.functionName;
+  context.functionVersion;
+  context.functionArn;
+  context.awsRequestId;
+  context.memoryLimitInMB;
+  context.identity; // info about Cognito identity provider
+  context.logGroupName;
+  context.logStreamName;
+  context.clientContext; // additional info about client application and client device
+  context.clientContext.client.app_title;
+  context.clientContext.Custom;
+  context.clientContext.env.platform;
+};
+```
 
 [back](#table-of-contents)
