@@ -21,6 +21,8 @@
     - [Overview of Additional Serverless Services in AWS](#overview-of-additional-serverless-services-in-aws)
     - [Use Cases of Serverless Architecture](#use-cases-of-serverless-architecture)
   - [Overview of Frameworks and CI/CD Tools for Serverless](#overview-of-frameworks-and-cicd-tools-for-serverless)
+  - [Section 2: Serverless Foundation - AWS Lambda](#section-2-serverless-foundation---aws-lambda)
+    - [Quick Overview of AWS Lambda](#quick-overview-of-aws-lambda)
 
 ## Section 1: Getting Started With Serverless Computing on AWS
 
@@ -358,6 +360,7 @@ exports.handler = (event, context, callback) => {
       - very simple and intuitive messaging service that you can send and receive message at virtually any volume
       - allows multiple publishers and consumers to read and write messages from the same queue
       - can retain this message up to a certain pre-defined time period or until you explicitly delete the message
+
 3. AWS Step Functions
 
 - there could be several Lambda functions working together and your application might need a way to orchestrate these functions
@@ -365,13 +368,18 @@ exports.handler = (event, context, callback) => {
 - lets you build visual workflows to coordinate different Lambda functions to work together and form a larger serverless application
 
 4. Analytics
+
    1. Amazon Kinesis
+
    - a platform for streaming data applications
    - work with or analyze streaming data in real time
+
    2. Amazon Athena
+
    - interactive query service that you can use to query your data stored in Amazon S3 using standard SQL syntax
 
 5. Debugging Tools
+
    1. AWS X-Ray
    2. AWS CloudWatch
 
@@ -444,5 +452,19 @@ There are two frameworks that help you work with your serverless applications ef
 5. AWS CodePipeline
 
 - is a service that allows you to define the delivery or deployment process for our serverless applications
+
+[back](#table-of-contents)
+
+## Section 2: Serverless Foundation - AWS Lambda
+
+### Quick Overview of AWS Lambda
+
+Serverless computing execution model in which the cloud provider dynamically manages the allocation of infrastructure resources, so we don't have to worry about managing server or any of the infrastructure.
+
+AWS Lambda is an event-driven serverless computing platform or a compute service provider by AWS. The code we run on AWS Lambda is called a Lambda function.
+
+You can write the Lambda functions right inside the Lambda console or write them locally on our computer and upload them to Lambda.
+
+Once the code is deployed to Lambda, it is ready to run. It runs whenever it is triggered by a preconfigured event source. They can be triggered by numerous event sources like API Gateway calls, S3 file uploads, changes to DynamoDB table data, CloudWatch events, SNS Notifications, third party APIs, IoT devices and so on. The Lambda functions run in containerized environments which spring into action only when triggered by an event-source.
 
 [back](#table-of-contents)
