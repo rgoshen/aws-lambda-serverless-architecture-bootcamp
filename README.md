@@ -24,7 +24,8 @@
   - [Section 2: Serverless Foundation - AWS Lambda](#section-2-serverless-foundation---aws-lambda)
     - [Quick Overview of AWS Lambda](#quick-overview-of-aws-lambda)
     - [Lambda Permissions Model](#lambda-permissions-model)
-    - [Lambda Handler Syntax](#lambda-handler-syntax)
+    - [Lambda Handler Syntax in Node.js 6.10 and Node.js 8.10](#lambda-handler-syntax-in-nodejs-610-and-nodejs-810)
+    - [Event Object, Invocation Types, Event Sources](#event-object-invocation-types-event-sources)
 
 ## Section 1: Getting Started With Serverless Computing on AWS
 
@@ -482,7 +483,7 @@ Once the code is deployed to Lambda, it is ready to run. It runs whenever it is 
 
 [back](#table-of-contents)
 
-### Lambda Handler Syntax
+### Lambda Handler Syntax in Node.js 6.10 and Node.js 8.10
 
 _nodejs 6.10_
 
@@ -518,5 +519,28 @@ const resizeImage = (data) =>
 ```
 
 Regardless of which version you use, there are two important arguments into the event handler: event & context
+
+[back](#table-of-contents)
+
+### Event Object, Invocation Types, Event Sources
+
+- holds the input data or input parameters that we want the Lambda function to act on.
+- the structure of the event object depends on the event source
+- there are different event triggers that can invoke the Lambda function
+- supports two invocation types and depends on the event source:
+  - synchronous
+  - asynchronous
+  - Example:
+    - S3 event is always asynchronous and API Gateway or Cognito event is always synchronous and we have not control over this
+  - However, in cases where we invoke the Lambda function through our own application using the invoke method of the AWS SDK, we can choose the invocation type
+- two types of event sources:
+  - push based events
+    - push the event data to Lambda in order to invoke the function
+    - S3 or API Gateway events
+  - pull events or poll-based events
+    - Lambda polls the event stream to look for event data
+    - DynamoDB stream event, a Kinesis stream event or an Amazon SQS queue event
+
+If we invoke the Lambda function from our code using Amazon SDK, we can have our own custom event structure
 
 [back](#table-of-contents)
